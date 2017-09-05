@@ -1,0 +1,1124 @@
+int x1=120, y1=240, a1=30, b1=20;
+int x2=380, y2=240, a2=30, b2=20;
+int x3=640, y3=240, a3=30, b3=20;
+int x4=120, y4=490, a4=30, b4=20;
+int x5=380, y5=490, a5=30, b5=20;
+int x6=640, y6=490, a6=30, b6=20;
+int x7=-100, y7=200, a7=100, b7=20;
+int x8=100, y8=200, a8=100, b8=20;
+int x9=100, y9=200, a9=100, b9=20;
+int value1=255, value2=#EBDEF7, value3=#FAF8E8, value4=#9BDBAA, value5=#CDDEF2, value6=#F58A8A;
+int pantalla=0;
+int vpato=100,vgato=100,vperro=100,vtortuga=100,vconejo=100,vpez=100;
+int contador=0;
+int j=1;
+int shushu=0;
+int robin=0;
+int ducky=0;
+int pedro=0;
+int roger=0;
+int pua=0;
+int turno=0;
+
+
+  Drop[] drops = new Drop[100];
+
+void setup ()
+{
+
+size(800,600);
+
+for (int i = 0; i < drops.length; i++){
+  drops[i] = new Drop();
+}
+}
+
+//--------------------------------------------------------------------------
+
+void draw (){
+  if(j==1){
+  background(#EAC9E7);
+  
+  for(int i = 0; i < drops.length; i++){
+  drops[i].fall();
+  drops [i].show();
+
+  String titulo="GUERRA DE MASCOTAS";
+  fill(#9161C9);
+  textSize(70);
+  text(titulo,210,150,400,300);
+  
+  
+  String mascotas="Las mascotas pelean en secreto por el amor de su humano...";
+  String instrucciones="¿Quieres verlos pelear?";
+  String presiona= "Da clic sobre la pantalla y presiona 'x' para comenzar";
+  
+  textSize(20);
+  fill(#51BFBE);
+  //fill(#E06AD9);
+  text(mascotas,100,400,600,400);
+  fill (#C85ECE);
+  text(instrucciones,270,450,600,400);
+  fill(#C45DAA);
+  text(presiona,130,500,600,400);
+  
+ 
+} //cierre del for
+inicio();
+
+    }//cierre de IF 
+switch(pantalla){
+case 2:
+
+if( (shushu==1)&(robin==1) ){
+  
+  background(255);
+    translate(-110, -40);
+    scale(2,2);
+    gato();
+    translate(-30, -10);
+    scale(1.1,1.1);
+     perro();
+    textSize(10);  
+     fill(0);
+      text("Presiona la 'g' para atacar",100,250);
+      fill(0);
+    text("Presiona la 'p' para atacar",300,250);
+    fill(0);
+     rect(x8,y8,vgato,b8);
+     fill(#EFF240);
+     rect(x9+230,y9,vperro,b9);//dejar expresado en variables//
+     if(turno==0){
+   vidaperro(-100,200,vperro,20);
+     }
+     else if(turno==1){  
+     vidagato(50,200,vgato,20);
+     }
+}//cierre de shushu vs robin
+
+
+if( (shushu==1)&(ducky==1) ){
+    background(255);
+    translate(-100, -40);
+    scale(2,2);
+    gato();
+    translate(-360, -10);
+    scale(1.1,1.1);
+    pato();    
+    textSize(10);  
+     fill(#EFF240);
+      text("Presiona la 'q' para atacar",-100,250);
+      fill(0);
+    text("Presiona la 'p' para atacar",80,250);
+     fill(#EFF240);
+     rect(x7,y7,vgato,b7);
+     fill(0);
+     rect(x8,y8,vpato,b8);//dejar expresado en variables//
+     if(turno==0){
+   vidapato(-100,200,vpato,20);
+     }
+     else if(turno==1){  
+     vidagato(50,200,vgato,20);
+     }
+   
+}//cierre de shushu vs ducky
+
+if( (shushu==1)&(pedro==1) ){
+    background(255);
+    translate(-100, -40);
+    scale(2,2);
+    gato();
+    translate(200, -265);
+    scale(1,1);
+    tortuga();
+    
+}//cierre de shushu vs pedro
+if( (shushu==1)&(roger==1) ){
+    background(255);
+    translate(-100, -40);
+    scale(2,2);
+    gato();
+    translate(30, -185);
+    scale(0.8,0.8);
+    pez();
+}//cierre de shushu vs roger
+
+if( (shushu==1)&(pua==1) ){
+    background(255);
+    translate(-100, -40);
+    scale(2,2);
+    gato();
+    translate(-290, -260);
+    scale(1,1);
+    conejo();
+}//cierre de shushu vs pua-------------------------------------------------
+/*
+if( (robin==1)&(shushu==1) ){
+  
+    background(255);
+    translate(-100, -40);
+    scale(2,2);
+    perro();
+    translate(-80, -10);
+    scale(1.1,1.1);
+     gato();
+    textSize(10);  
+     fill(#EFF240);
+      text("Presiona la 'q' para atacar",-100,250);
+      fill(0);
+    text("Presiona la 'p' para atacar",-80,250);
+     rect(x8-500,y8,vgato,b8);
+     fill(0);
+     rect(x9,y9,vperro,b9);//dejar expresado en variables//
+     if(turno==0){
+   vidaperro(-100,200,vperro,20);
+     }
+     else if(turno==1){  
+     vidagato(50,200,vgato,20);
+     }
+   
+  }//cierre de robin vs shushu
+  
+  */
+  if( (robin==1)&(ducky==1) ){
+  pushMatrix();
+    background(255);
+    translate(-600, 10);
+    scale(2,2);
+    perro();
+    translate(-55, 0);
+    scale(1,1);
+    pato();
+   popMatrix();
+  }//cierre de robin vs ducky
+  
+  if( (robin==1)&(pedro==1) ){
+  pushMatrix();
+    background(255);
+    translate(-600, 10);
+    scale(2,2);
+    perro();
+   translate(450, -265);
+    scale(1,1);
+    tortuga();
+   popMatrix();
+  }//cierre de robin vs pedro
+  
+  if( (robin==1)&(roger==1) ){
+  pushMatrix();
+    background(255);
+    translate(-600, 10);
+    scale(2,2);
+    perro();
+   translate(280, -185);
+    scale(0.8,0.8);
+    pez();
+   popMatrix();
+  }//cierre de robin vs roger
+  
+  if( (robin==1)&(pua==1) ){
+  pushMatrix();
+    background(255);
+    translate(-600, 10);
+    scale(2,2);
+    perro();
+   translate(-50, -260);
+    scale(1,1);
+    conejo();
+   popMatrix();
+  }//cierre de robin vs pua---------------------------------------------------------
+  
+   if( (ducky==1)&(shushu==1) ){
+     
+  pushMatrix();
+    background(255);
+    translate(-200, 10);
+    scale(1,1);
+    pato();
+    translate(710, 0);
+    scale(1,1);
+    gato();
+     textSize(10);  
+     fill(#EFF240);
+      text("Presiona la 'd' para atacar",-100,250);
+      fill(0);
+    text("Presiona la 'g' para atacar",80,250);
+     fill(#EFF240);
+     rect(x7,y7,vpato,b7);
+     fill(0);
+     rect(x8,y8,vgato,b8);//dejar expresado en variables//
+     
+     if(turno==0){
+   vidapato(-100,200,vpato,20);
+     }
+     else if(turno==1){  
+     vidagato(50,200,vgato,20);
+     }
+   popMatrix();
+   
+  }//cierre de ducky vs shushu
+  //------------------------------------------------------------------------------------------------------------------------------
+  if( (ducky==1)&(robin==1) ){
+    
+  pushMatrix();
+    background(255);
+    translate(-1150, -30);
+    scale(2,2);
+    pato();
+    translate(480, 0.5);
+    scale(1,1);
+    perro();
+    textSize(10);  
+     fill(#EFF240);
+      text("Presiona la 'd' para atacar",110,250);
+      fill(0);
+    text("Presiona la 'p' para atacar",320,250);
+     fill(#EFF240);
+     stroke(126);
+     rect(x7+220,y7,vpato,b7);
+     fill(0);
+     rect(x9+260,y9,vperro,b9);//dejar expresado en variables//
+     
+     if(turno==0){
+   vidapato(-100,200,vpato,20);
+     }
+     else if(turno==1){  
+     vidaperro(50,200,vgato,20);
+     }
+   popMatrix();
+  }//cierre de ducky vs robin
+  //------------------------------------------------------------------------------------------------------------------------------
+   if( (ducky==1)&(pedro==1) ){
+  pushMatrix();
+    background(255);
+    translate(-1150, -30);
+    scale(2,2);
+    pato();
+    translate(720, -265);
+    scale(1,1);
+    tortuga();
+   popMatrix();
+  }//cierre de ducky vs pedro
+  
+   if( (ducky==1)&(roger==1) ){
+  pushMatrix();
+    background(255);
+    translate(-1150, -30);
+    scale(2,2);
+    pato();
+    translate(560, -185);
+    scale(0.8,0.8);
+    pez();
+   popMatrix();
+  }//cierre de robin vs roger
+  
+  if( (ducky==1)&(pua==1) ){
+  pushMatrix();
+    background(255);
+    translate(-1150, -30);
+    scale(2,2);
+    pato();
+     translate(230, -260);
+    scale(1,1);
+    conejo();
+   popMatrix();
+  }//cierre de robin vs pua-------------------------------------------------
+  
+   if( (pedro==1)&(shushu==1) ){
+  pushMatrix();
+    background(255);
+    translate(-180, 20);
+    scale(1,1);
+    tortuga();
+    translate(200, 260);
+    scale(1,1);
+    gato();
+   popMatrix();
+    }//cierre de pedro vs shushu
+    
+     if( (pedro==1)&(robin==1) ){
+  pushMatrix();
+    background(255);
+    translate(-50, -550);
+    scale(2,2);
+    tortuga();
+    translate(-80, 260);
+    scale(1,1);
+    perro();
+   popMatrix();
+    }//cierre de pedro vs robin
+    
+if( (ducky==1)&(pedro==1) ){
+  pushMatrix();
+    background(255);
+    translate(-1150, -30);
+    scale(2,2);
+    pato();
+    translate(720, -265);
+    scale(1,1);
+    tortuga();
+   popMatrix();
+  }//cierre de ducky vs pedro
+  
+    
+     
+   if( (pedro==1)&(roger==1) ){
+  pushMatrix();
+    background(255);
+    translate(-50, -550);
+    scale(2,2);
+    tortuga();
+    translate(-80, 5);
+    scale(1,1);
+    pez();
+   popMatrix();
+    }//cierre de pedro vs roger
+    
+    if( (pedro==1)&(pua==1) ){
+  pushMatrix();
+    background(255);
+    translate(10, -450);
+    scale(1.8,1.8);
+    tortuga();
+    translate(200, 260);
+    scale(1,1);
+    gato();
+   popMatrix();
+    }//cierre de pedro vs pua--------------------------------------------------------------------
+    
+    if( (roger==1)&(shushu==1) ){
+  pushMatrix();
+    background(255);
+      translate(280, -185);
+    scale(0.8,0.8);
+    pez();
+     translate(200, 260);
+    scale(1,1);
+    gato();
+   popMatrix();
+  }//cierre de roger vs shushu
+  
+   if( (roger==1)&(pua==1) ){
+  pushMatrix();
+    background(255);
+      translate(-600, -550);
+    scale(2,2);
+    pez();
+     translate(480, 260);
+    scale(1,1);
+    gato();
+   popMatrix();
+  }//cierre de roger vs shushu
+   break;
+   
+   case 3:
+   background(0);
+   
+   if( (vperro>vgato) || (vperro>vpato) ){
+   textSize(70);
+     fill(255);
+   text("GANO SHUSHU!!",160,300);
+   }
+   else if( (vgato>vpato) || (vgato>vperro) ){
+   textSize(70);
+     fill(255);
+   text("GANO ROBIN!!",160,300);
+   }
+   
+   break;
+}//CIERRE DE SWITCH//
+  
+
+
+//-------------------------------------------------------------------------
+} //cierre de DRAW
+
+class Drop {
+  float x = random (width);
+  float y = random (-500, -50);
+  float z = random (0, 20);
+  float len = map (z, 0, 20, 10, 20);
+  float yspeed = map(z, 0, 20, 1, 20);
+  
+  void fall() {
+    y = y + yspeed;
+    float grav = map (z, 0, 20, 0, 0.2);
+    yspeed = yspeed + grav;
+    
+    if (y > height){
+      y = random(-200, -100);
+      yspeed = map(z, 0, 20, 4, 10);
+    }
+  }
+  void show (){
+    float thick = map(z, 0, 20, 1, 3);
+    strokeWeight(thick);
+    stroke(138, 43, 226);
+    line (x, y, x, y+len);
+  }
+        
+} // cierre del DROP
+
+void inicio(){
+if (keyPressed ){
+  if(key=='x'||key=='X'){
+clear();
+background(#BEE0DD);
+//medidas de PRIMER carta GATO-------------------------------------------------------------
+stroke(126);
+fill (#6B2BD3);  
+rect(60,30,150,200,7); //Fondo de la carta
+fill(0);
+textSize(15);
+text("SHUSHU", 70, 45); //TITULO
+fill (#DFB4F7);
+rect(70,50,130,90); //Fondo de criatura
+fill (#DFB4F7);
+rect(70,150,130,60); //Fondo de texto
+fill(0);
+
+String a="ATAQUE: 30";
+String v="VIDA: 7";
+text(a,90,160,200,100);
+text(v,100,180,200,100);
+
+//fill (#DFB4F7);
+fill(value1);
+rect(120,240,30,20);
+//rectangulo1(x1,y1,a1,b1); //CAJA 1
+fill(0);
+String NUMGATO="1";
+text(NUMGATO,130,240,200,100);
+
+
+gato();
+
+
+//-------------------------------------------------------------------------
+//medidas de SEGUNDA carta PERRO
+
+
+fill (#CDA6F5);  
+rect(320,30,150,200,7); //Fondo de la carta
+fill(0);
+text("ROBIN", 330, 45); //TITULO
+fill (#EBDEF7);
+rect(330,50,130,90); //Fondo de criatura
+fill (#EBDEF7);
+rect(330,150,130,60); //Fondo de texto
+fill(0);
+String a1="ATAQUE: 25";
+String v1="VIDA: 8";
+text(a1,350,160,200,100);
+text(v1,360,180,200,100);
+
+//fill (#EBDEF7);
+fill(value2);
+rect(380,240,30,20);
+//rectangulo2(x2,y2,a2,b2);
+fill(0);
+String NUMPERRO="2";
+text(NUMPERRO,390,240,200,100);
+
+perro();
+
+
+//-------------------------------------------------------------------------
+//medidas de TERCER carta PATO
+
+stroke(126);
+fill (#F2DC31);  
+rect(580,30,150,200,7); //Fondo de la carta
+fill(0);
+text("DUCKY", 590, 45); //TITULO
+fill (#FAF8E8);
+rect(590,50,130,90); //Fondo de criatura
+fill (#FAF8E8);
+rect(590,150,130,60); //Fondo de texto
+
+fill(0);
+String a2="ATAQUE: 15";
+String v2="VIDA: 5";
+text(a2,610,160,200,100);
+text(v2,620,180,200,100);
+
+//fill (#FAF8E8);
+fill(value3);
+rect(640,240,30,20);
+//rectangulo3(x3,y3,a3,b3);
+fill(0);
+String NUMPATO="3";
+text(NUMPATO,650,240,200,100);
+pato();
+
+
+
+//--------------------------------------------------------------------------
+
+//medidas de CUARTA carta TORTUGA
+stroke(126);
+fill (#84F78D);  
+rect(60,280,150,200,7); //Fondo de la carta
+fill(0);
+text("PEDRO", 70, 295); //TITULO
+fill (#9BDBAA);
+rect(70,300,130,90); //Fondo de criatura
+fill (#9BDBAA);
+rect(70,400,130,60); //Fondo de texto
+
+fill(0);
+String a3="ATAQUE: 18";
+String v3="VIDA: 4";
+text(a3,90,410,200,100);
+text(v3,100,430,200,100);
+
+//fill (#9BDBAA);
+fill(value4);
+rect(120,490,30,20);
+//rectangulo4(x4,y4,a4,b4);
+fill(0);
+String NUMTORTUGA="4";
+text(NUMTORTUGA,130,490,200,100);
+
+tortuga();
+
+
+//-------------------------------------------------------------------------
+//medidas de QUINTA carta PEZ
+
+stroke(126);
+fill (#93B5E0);  
+rect(320,280,150,200,7); //Fondo de la carta
+fill(0);
+text("ROGER", 330, 295); //TITULO
+fill (#CDDEF2);
+rect(330,300,130,90); //Fondo de criatura
+fill (#CDDEF2);
+rect(330,400,130,60); //Fondo de texto
+
+fill(0);
+String a4="ATAQUE: 12";
+String v4="VIDA: 3";
+text(a4,350,410,200,100);
+text(v4,360,430,200,100);
+
+//fill (#CDDEF2);
+fill(value5);
+rect(380,490,30,20);
+//rectangulo5(x5,y5,a5,b5);
+fill(0);
+String NUMPEZ="5";
+text(NUMPEZ,390,490,200,100);
+
+pez();
+
+
+
+//-------------------------------------------------------------------------
+//medidas de SEXTA carta CONEJO
+
+stroke(126);
+fill (#FAB1EA);  
+rect(580,280,150,200,7); //Fondo de la carta
+fill(0);
+text("PUA", 590, 295); //TITULO
+fill (#F58A8A);
+rect(590,300,130,90); //Fondo de criatura
+fill (#F58A8A);
+rect(590,400,130,60); //Fondo de texto
+
+fill(0);
+String a5="ATAQUE: 20";
+String v5="VIDA: 6";
+text(a5,610,410,200,100);
+text(v5,620,430,200,100);
+
+//fill (#F58A8A);
+fill(value6);
+rect(640,490,30,20);
+//rectangulo6(x6,y6,a6,b6);
+fill(0);
+String NUMCONEJO="6";
+text(NUMCONEJO,650,490,200,100);
+
+conejo();
+
+//--------------------------------------------------------------------------------------
+j=j+1; //hace el cambio de ventana sin necesidad de mantener apretada la X
+
+String instrucciones2="PRESIONA EL NÚMERO DE LA MASCOTA QUE ELIGES";
+  
+  textSize(20);
+  fill(#A15DC4);
+  text(instrucciones2,150,550,500,400);
+  }
+}
+}
+//------------------------------------------------------------------------------------
+void mouseClicked(){
+  //Cuadro1//
+  if((mouseX>=120)&(mouseX<=150)&(mouseY>=240)&(mouseY<=260)){
+  rectangulo1(x1,y1,a1,b1);
+  shushu=1;
+  }  //cierre del IF 
+  //Cuadro2//
+  if((mouseX>=380)&(mouseX<=410)&(mouseY>=240)&(mouseY<=260)){
+  rectangulo2(x2,y2,a2,b2);
+  robin=1;
+  }  //cierre del IF 
+  //Cuadro3//
+  if((mouseX>=640)&(mouseX<=670)&(mouseY>=240)&(mouseY<=260)){
+  rectangulo3(x3,y3,a3,b3);
+  ducky=1;
+  }  //cierre del IF 
+   //Cuadro4//
+  if((mouseX>=120)&(mouseX<=150)&(mouseY>=490)&(mouseY<=510)){
+  rectangulo4(x4,y4,a4,b4);
+  pedro=1;
+  }  //cierre del IF 
+  //Cuadro5//
+  if((mouseX>=380)&(mouseX<=410)&(mouseY>=490)&(mouseY<=510)){
+  rectangulo5(x5,y5,a5,b5);
+  roger=1;
+  }  //cierre del IF 
+  //Cuadro6//
+  if((mouseX>=640)&(mouseX<=670)&(mouseY>=490)&(mouseY<=510)){
+  rectangulo6(x6,y6,a6,b6);
+  pua=1;
+  }  //cierre del IF 
+  
+}  //cierre del MOUSECLIC
+
+void rectangulo1(int x1,int y1,int a1,int b1){
+  if(contador<2){
+ if(value1==255){
+ value1=0;
+ pantalla=pantalla+1;
+ rect(x1,y1,a1,b1);
+ contador=contador+1;
+ print("Se le suma 1");
+ }//cierre del IF
+ else{
+ value1=255;
+ contador=contador-1;
+ pantalla=pantalla-1;
+ print("Se le resta 1");
+   }  //cierre del ELSE
+  } //cierre del IF CONTADOR
+  else if(contador==2){
+  if(value1==0){
+    value1=255;
+    pantalla=pantalla-1;
+    contador=contador-1;
+    }  //cierre IF value1
+  }  //cierre del ELSE-IF1
+}  //cierre del RECTANGULO1
+//RECTANGULO2//
+void rectangulo2(int x2,int y2,int a2,int b2){
+  if(contador<2){
+ if(value2==#EBDEF7){
+ value2=0;
+ pantalla=pantalla+1;
+ rect(x2,y2,a2,b2);
+ contador=contador+1;
+ print("Se le suma 1");
+ }//cierre del IF
+ else{
+ value2=(#EBDEF7);
+ pantalla=pantalla-1;
+ contador=contador-1;
+ print("Se le resta 1");
+   }  //cierre del ELSE
+  }  //cierre del  IF CONTADOR
+  else if(contador==2){
+  if(value2==0){
+    value2=(#EBDEF7);
+    pantalla=pantalla-1;
+    contador=contador-1;
+    }  //cierre IF value1
+  }  //cierre del ELSE-IF1
+}  //cierre del RECTANGULO2
+//RECTANGULO3//
+void rectangulo3(int x3,int y3,int a3,int b3){
+  if(contador<2){
+ if(value3==#FAF8E8){
+ value3=0;
+ pantalla=pantalla+1;
+ rect(x3,y3,a3,b3);
+ contador=contador+1;
+ print("Se le suma 1");
+ }//cierre del IF
+ else{
+ value3=#FAF8E8;
+ pantalla=pantalla-1;
+ contador=contador-1;
+ print("Se le resta 1");
+   }  //cierre del ELSE
+  }  //cierre del IF CONTADOR
+  else if(contador==2){
+  if(value3==0){
+    value3=#FAF8E8;
+    pantalla=pantalla-1;
+    contador=contador-1;
+    }  //cierre IF value1
+  }  //cierre del ELSE-IF1
+}  //cierre del RECTANGULO3
+//RECTANGULO 4//
+void rectangulo4(int x4,int y4,int a4,int b4){
+  if(contador<2){
+ if(value4==#9BDBAA){
+ value4=0;
+ pantalla=pantalla+1;
+ rect(x4,y4,a4,b4);
+ contador=contador+1;
+ print("Se le suma 1");
+ }//cierre del IF
+ else{
+ value4=#9BDBAA;
+ pantalla=pantalla-1;
+ contador=contador-1;
+ print("Se le resta 1");
+   }  //cierre del ELSE
+  } //cierre del IF CONTADOR
+  else if(contador==2){
+  if(value4==0){
+    value4=#9BDBAA;
+    pantalla=pantalla-1;
+    contador=contador-1;
+    }  //cierre IF value1
+  }  //cierre del ELSE-IF1
+}  //cierre del RECTANGULO4
+//RECTANGULO 5//
+void rectangulo5(int x5,int y5,int a5,int b5){
+  if(contador<2){
+ if(value5==#CDDEF2){
+ value5=0;
+ pantalla=pantalla+1;
+ rect(x5,y5,a5,b5);
+ contador=contador+1;
+ print("Se le suma 1");
+ }//cierre del IF
+ else{
+ value5=#CDDEF2;
+ pantalla=pantalla-1;
+ contador=contador-1;
+ print("Se le resta 1");
+   }  //cierre del ELSE
+  } //cierre del IF CONTADOR
+  else if(contador==2){
+  if(value5==0){
+    value5=#CDDEF2;
+    pantalla=pantalla-1;
+    contador=contador-1;
+    }  //cierre IF value1
+  }  //cierre del ELSE-IF1
+}  //cierre del RECTANGULO5
+//RECTANGULO 6 //
+void rectangulo6(int x6,int y6,int a6,int b6){
+  if(contador<2){
+ if(value6==#F58A8A){
+ value6=0;
+ pantalla=pantalla+1;
+ rect(x6,y6,a6,b6);
+ contador=contador+1;
+ print("Se le suma 1");
+ }//cierre del IF
+ else{
+ value6=#F58A8A;
+ pantalla=pantalla-1;
+ contador=contador-1;
+ print("Se le resta 1");
+   }  //cierre del ELSE
+  } //cierre del IF CONTADOR
+  else if(contador==2){
+  if(value6==0){
+    value6=#F58A8A;
+    pantalla=pantalla-1;
+    contador=contador-1;
+    }  //cierre IF value1
+  }  //cierre del ELSE-IF1
+}  //cierre del RECTANGULO6
+
+void gato(){
+  //FIGURA GATO-------------------------------------------------------------
+fill(0);
+noStroke();
+ellipse(135,95,74,65);  //CARA
+noStroke ();
+fill(0);
+triangle(100,85,105,55,135,80);  //OREJA IZQUIERDA
+fill(0);
+triangle(135,80,165,55,170,85);         //OREJA DERECHA
+
+fill(#FC91F0);
+triangle (128,104,135,116,142,104);      //NARIZ
+
+fill(255,255,255);
+ellipse(120,90,27,27);                   //OJO IZQ
+ellipse (150,90,27,27);                  //OJO DER
+
+fill (#9CCB6B);
+ellipse (120,90,15,20);                  //OI 2
+ellipse (150,90,15,20);                  //OD 2
+fill (0);
+
+ellipse (120,90,9,15);                   //OI 3
+ellipse (150,90,9,15);                  //OD 3
+
+stroke (126);
+line(100,100,124,107.5);               //bigote 1 izq
+line(100,110,124,110);                 //bigote 2 izq
+line (100,120,124,113.5);              //bigote 3 izq
+
+line (146,107.5,170,100);         //bigote 1 der
+line (146,110,170,110);         //bigote 2 der
+line (146,113.5,170,120);         //bigote 3 der
+} //cierre de gato------------------------------------------------------------
+
+void perro(){
+  //FIGURA PERRO -------------------------------------------------------------
+fill(#D1A05F);
+noStroke();
+ellipse(395,95,74,65);                             //CARA
+noStroke ();
+fill(#D1A05F);
+  
+noStroke();
+quad(350,75,365,65,380,72,365,82);      //OREJA IZQUIERDA
+quad(340,90,350,75,365,82,355,100);
+
+fill(#D1A05F);
+quad(410,72,425,65,440,75,425,82);      //OREJA DERECHA
+quad(435,100,425,82,440,75,450,90); 
+
+noStroke();
+fill(0);
+ellipse (395,115,25,15);      //NARIZ
+
+fill(255,255,255);
+ellipse(380,90,27,27);                   //OJO IZQ
+ellipse(410,90,27,27);                  //OJO DER
+
+fill (#6B9BC4);
+ellipse (380,90,20,20);                  //Ojo Izq 2
+ellipse (410,90,20,20);                  //Ojo Derecho 2
+fill (0);
+
+ellipse (380,90,15,15);                   //Ojo Izq 3
+ellipse (410,90,15,15);                  //Ojo Derecho 3
+
+}//cierre de perro-----------------------------------------------------------
+
+void pato(){
+  //FIGURA PATO -------------------------------------------------------------
+fill(#F5EE65);
+noStroke();
+ellipse(655,95,74,65);  //CARA
+noStroke ();
+fill(#D1A05F);
+
+noStroke();
+fill(255,255,255);
+ellipse(670,85,27,27);                   //OJO der
+
+noStroke();
+fill(255,255,255);
+ellipse(640,85,27,27);                   //OJO izq
+
+fill (#6B9BC4);
+ellipse (670,85,20,20);                  //Ojo 2 der
+
+fill (#6B9BC4);
+ellipse (640,85,20,20);                  //Ojo 2 izq
+
+fill (0);
+ellipse (670,85,15,15);                   //Ojo 3 der
+
+fill (0);
+ellipse (640,85,15,15);                   //Ojo 3 izq 
+
+noStroke();
+fill(#F0A255);
+ellipse (655,105,50,20);      //PICO
+stroke(126);
+line (635,108,672,108);
+} //cierre de Pato----------------------------------------------------
+
+void tortuga(){
+ //FIGURA TORTUGA-----------------------------------------------------------
+fill(#5B8355);
+arc(135, 384, 128, 90, 3, 6.42,CHORD);
+fill(#70986A);
+arc(135, 384, 114, 74, 3, 6.42,CHORD);
+fill(#5B8355);
+rect(121, 369, 28, 15);
+
+fill(#57A03F);
+noStroke();
+ellipse(135,350,80,55);                     //CARA
+
+fill(#317C19);
+ellipse(130,363,5,7);                      //NARIZ                
+ellipse (140,363,5,7);
+
+fill(255,255,255);
+ellipse(120,345,27,27);                   //OJO IZQ
+ellipse (150,345,27,27);                  //OJO DER
+
+fill (#9CCB6B);
+ellipse (120,345,20,20);                  //OJO I 2
+ellipse (150,345,20,20);                  //OJO D 2
+
+fill (0);
+
+ellipse (120,345,15,15);                   //OI 3
+ellipse (150,345,15,15);                  //OD 3
+
+} // cierre de tortuga--------------------------------------------------
+
+void pez(){
+//FIGURA PEZ------------------------------------------------------------
+
+noStroke ();
+fill(#F7B32A);
+//ellipse(390,335,50,50);   //OREJA IZQUIERDA
+
+fill(#F7B32A);
+noStroke();
+ellipse(380,350,90,65);                     //CARA
+
+noStroke ();
+fill(#F2BD53);                                 
+//triangle(400, 345, 456, 315, 456, 375); 
+
+noStroke ();
+fill(#F7B32A);                                 
+triangle(400, 345, 456, 315, 456, 375);         //COLA
+
+fill(#C9962F);                                //NARIZ   
+ellipse(355,370,15,7); 
+
+
+
+fill(255,255,255);
+ellipse(360,345,30,30);                   //OJO IZQ
+
+
+fill (#9CCB6B);
+ellipse(357,345,22,22);                  //OJO I 2
+
+fill (0);
+ellipse(357,345,15,15);                 //OI 3
+}//cierre pez----------------------------------------------------------------
+
+void conejo(){
+//FIGURA CONEJO-------------------------------------------------------------
+
+noStroke ();
+fill(#EAEAAF);
+ellipse(635,330,20,60);   //OREJA IZQUIERDA
+fill(#F7BEF6);
+ellipse(635,330,15,45);
+fill(#EAEAAF);
+ellipse(660,330,20,60);          //OREJA DERECHA
+fill(#F7BEF6);
+ellipse(660,330,15,45);      
+
+fill(#EAEAAF);
+noStroke();
+ellipse(648,358,69,60);                    //CARA
+
+fill(#FC91F0);
+//triangle (128,104,135,116,142,104);      //NARIZ
+ellipse (650,365,15,10);
+
+fill(255);
+ellipse(635,350,27,27);                   //OJO IZQ
+ellipse (663,350,27,27);                  //OJO DER
+
+fill (#9CCB6B);
+ellipse (635,350,20,20);                  //OJO I 2
+ellipse (663,350,20,20);                  //OJO D 2
+
+fill (0);
+
+ellipse (635,350,15,15);                   //OI 3
+ellipse (663,350,15,15);                  //OD 3
+
+stroke(126);
+line (640,375,655,375);                   //BOQUITA
+noStroke();
+fill(255);
+rect(641, 376, 6, 6, 1);                    //DIENTE IZQ
+
+noStroke();
+fill(255);
+rect(649, 376, 6, 6, 1);                    //DIENTE DERECHO
+
+
+}//cierre de conejo-------------------------------------------------------
+
+
+void vidapato(int x7,int y7,int a7,int b7){
+     
+    if(keyPressed){
+    if(key=='d'){
+    vpato=vpato-25;
+    fill(#EFF240);
+    rect(-100,200,vpato,20);
+    
+    turno=turno+1;
+    
+    if(vpato==0){
+      pantalla=3;
+          }//cierre de while
+      }//cierre de letra
+    }//cierre del keypressed
+}
+
+void vidagato(int x8,int y8,int a8,int b8){
+    
+    if(keyPressed){
+    if(key=='g'){
+    vgato=vgato-25;
+    rect(x8,y8,vgato,20);
+   
+     turno=turno-1;//para los turnos, si es gato contra perro debe ser turno=turno-1; si es
+   
+    if(vgato==0){
+      pantalla=3;
+          }//cierre de while
+      }//cierre de letra
+    }//cierre del keypressed
+}
+
+void vidaperro(int x9,int y9,int a9,int b9){
+     fill(#EFF240);
+    if(keyPressed){
+    if(key=='p'){
+    vperro=vperro-25;
+    rect(-100,200,vpato,20);
+    
+    turno=turno+1; //para los turnos, si es perro contra gato debe ser turno=turno+1; si es perro contra pato turno=turno-1;
+    
+    if(vperro==0){
+      pantalla=3;
+          }//cierre de while
+      }//cierre de letra
+    }//cierre del keypressed
+}
+
+void vidatortuga(int x10,int y10,int a10,int b10){
+     fill(0);
+    if(keyPressed){
+    if(key=='d'){
+    vtortuga=vtortuga-25;
+    //rect(x10,y10,vgato,20);
+    rect(-100,200,vgato,20);
+    turno=turno+1; //para los turnos, si es gato contra pato debe ser turno=turno+1; si es tortuga contra tortuga turno=turno-1;
+    if(vtortuga==0){
+      pantalla=3;
+          }//cierre de while
+      }//cierre de letra
+    }//cierre del keypressed
+}
